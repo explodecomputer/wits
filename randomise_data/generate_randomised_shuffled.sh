@@ -23,11 +23,11 @@ do
 done
 
 # Merge chromosomes into one file
-plink1.90 --bfile scratch/chr1 --merge-list mergefile.txt --make-bed --out data
+plink1.90 --bfile scratch/chr1 --merge-list mergefile.txt --make-bed --out geno
 
 # Make fake IDs
-cp data.fam data.fam.orig
-nl data.fam.orig | awk '{ print "id"$1, "id"$1, "0", "0", $6, $7 }' > data.fam
+cp geno.fam geno.fam.orig
+nl geno.fam.orig | awk '{ print "id"$1, "id"$1, "0", "0", $6, $7 }' > geno.fam
 
 # Check sex
-plink1.90 --bfile data --check-sex --out data
+plink1.90 --bfile geno --check-sex --out geno
