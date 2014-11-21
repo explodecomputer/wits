@@ -17,6 +17,7 @@ n <- nrow(gen)
 
 # Simulate BMI
 # Assume genetic profile explains 10% of variance
+# Give BMI skewed distribution
 
 bmi <- ((gen$bmi - mean(gen$bmi))/sd(gen$bmi)) * sqrt(0.1) + rsnorm(n, 0, sqrt(0.9), 2)
 bmi <- (bmi - mean(bmi))/sd(bmi)
@@ -30,9 +31,14 @@ bmi <- (bmi - mean(bmi))/sd(bmi)
 
 
 
-# bmi explains 0.01 of sbp-crp correlation and 0.001 dbp-crp correlation
 
-## The network looks something like this
+## The network looks something like this:
+
+## Age is not a confounder for any of the variables
+## Sex is associated (2% var) with sbp and dbp
+## BMI causes CRP and BP
+## CRP and BP are associated but not causally
+## BMI explains all but 0.01 of sbp-crp correlation and 0.001 dbp-crp correlation
 # bmi -> crp 0.125
 # bmi -> sbp 0.058
 # bmi -> dbp 0.061
