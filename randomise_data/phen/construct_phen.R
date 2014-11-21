@@ -1,3 +1,4 @@
+set.seed(100)
 library(fGarch)
 
 # Execute ~/repo/sa_course/randomise_data/generate_randomised_shuffled.sh
@@ -11,7 +12,7 @@ bmi_gen <- read.table("~/repo/sa_course/randomise_data/phen/bmi.profile", he=T)
 
 gen <- data.frame(FID=sbp_gen$FID, IID=sbp_gen$IID, sbp=sbp_gen$SCORE, dbp=dbp_gen$SCORE, crp=crp_gen$SCORE, bmi=bmi_gen$SCORE)
 
-fam <- read.table("~/repo/sa_course/randomise_data/data.fam")
+fam <- read.table("~/repo/sa_course/randomise_data/geno.fam")
 sex <- as.numeric(as.character(fam$V5))
 n <- nrow(gen)
 
