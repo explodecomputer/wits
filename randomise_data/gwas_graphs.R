@@ -1,26 +1,29 @@
 library(qqman)
 
-readPlinkLinear <- function(filename, h=TRUE)
+qqplotpval <- function(P, filename=NULL)
 {
-	a <- read.table(filename, header=h, colClass=c("numeric", "character", "numeric", "character", "character", "numeric", "numeric", "numeric", "numeric"))
-	if(!h)
-	{
-		names(a) <- c("CHR", "SNP", "BP", "A1", "TEST", "NMISS", "BETA", "STAT", "P")
-	}
-	return(a)
+        require(GenABEL)
+        l <- estlambda(P, method="median")
+        nom <- paste("lambda = ", round(l$estimate, 3), sep="")
+        if(!is.null(filename))
+        {
+                png(filename)
+        }
+        estlambda(P, method="median", plot=TRUE, main=nom)
+        if(!is.null(filename))
+        {
+                dev.off()
+        }
 }
-
-
 
 arguments <- commandArgs(T)
 infile <- arguments[1]
 trait <- arguments[2]
 
-a <- readPlinkLinear(infile)
+a <- read.table(infile, he=T)
+a$CHR <- as.numeric(a$CHR)
 
-png(file=paste(trait, "_qqplot.png", sep=""))
-qq(a$P, main=paste(trait, "Q-Q plot"))
-dev.off()
+qqplotpval(a$P, paste(trait, "_qqplot.png", sep=""))
 
 png(file=paste(trait, "_manhattan.png", sep=""))
 manhattan(a, main=paste(trait, "Manhattan plot"))

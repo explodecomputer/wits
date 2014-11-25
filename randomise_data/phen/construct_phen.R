@@ -109,11 +109,12 @@ cor(dbp, sbp)
 # Scale phenotypes
 
 bmi <- bmi * sbmi + mbmi
-dbp <- dbp * 11.7 + 83.3
-sbp <- sbp * 20.4 + 140.97
+dbp <- dbp * 11.7 + 80.3
+sbp <- sbp * 20.4 + 120.97
 crp <- crp * 0.838 + 0.560
 hscrp <- exp(crp)
-hypertension <- as.numeric(dbp > 90 | sbp > 140)
+hypertension <- as.numeric(dbp > 90 | sbp > 140) + 1
+table(hypertension)
 age <- as.integer(rnorm(n, 45, 3))
 
 
@@ -129,23 +130,23 @@ covars$age <- age
 covars$sex <- sex
 
 # Check that instruments are associated with what we expect
-summary(lm(crp ~ gen$crp))
-summary(lm(crp ~ gen$bmip + gen$bmi))
-summary(lm(crp ~ gen$crp + gen$crpp))
+# summary(lm(crp ~ gen$crp))
+# summary(lm(crp ~ gen$bmip + gen$bmi))
+# summary(lm(crp ~ gen$crp + gen$crpp))
 
-summary(lm(bmi ~ gen$bmip + gen$bmi))
+# summary(lm(bmi ~ gen$bmip + gen$bmi))
 
 
-summary(lm(sbp ~ gen$bmi))
-summary(lm(dbp ~ gen$bmi))
-summary(lm(hypertension ~ gen$bmi))
-summary(lm(bmi ~ gen$crp))
-summary(lm(sbp ~ gen$crp))
-summary(lm(dbp ~ gen$crp))
-summary(lm(sbp ~ gen$sbp))
-summary(lm(dbp ~ gen$dbp))
-summary(lm(crp ~ gen$dbp))
-summary(lm(crp ~ gen$sbp))
+# summary(lm(sbp ~ gen$bmi))
+# summary(lm(dbp ~ gen$bmi))
+# summary(lm(hypertension ~ gen$bmi))
+# summary(lm(bmi ~ gen$crp))
+# summary(lm(sbp ~ gen$crp))
+# summary(lm(dbp ~ gen$crp))
+# summary(lm(sbp ~ gen$sbp))
+# summary(lm(dbp ~ gen$dbp))
+# summary(lm(crp ~ gen$dbp))
+# summary(lm(crp ~ gen$sbp))
 
 
 save(phen, covars, file="~/repo/sa_course/randomise_data/phen.RData")
