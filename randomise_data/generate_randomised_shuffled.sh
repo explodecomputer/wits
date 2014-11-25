@@ -31,3 +31,11 @@ nl geno.fam.orig | awk '{ print "id"$1, "id"$1, "0", "0", $6, $7 }' > geno.fam
 
 # Check sex
 plink1.90 --bfile geno --check-sex --out geno
+
+
+# Create GRM using HM3 SNPs (10 minutes, 15 threads)
+plink1.90 --bfile geno --make-grm-bin --maf 0.01 --extract hapmap3_autosome.snplist  --out geno_hm3
+
+# Construct PCs (7 minutes)
+gcta64 --grm geno_hm3 --pca --out geno_hm3
+
