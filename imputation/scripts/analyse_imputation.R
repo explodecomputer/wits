@@ -52,4 +52,14 @@ pdf("../images/mafbin_vs_info.pdf")
 plot(info ~ mafbin, dat)
 dev.off()
 
+# How many SNPs would we call 'reliable'?
+with(info, table(info > 0.8, maf > 0.01))
+
+# What is the new distribution of maf in reliable SNPs?
+pdf("../images/maf_reliablesnps.pdf")
+hist(subset(info, info > 0.8 & maf > 0.01)$maf)
+dev.off()
+
+
 # Why is imputation so bad at imputing rare variants?
+# What is the distribution of maf in the complete data set (geno.bed/geno.bim/geno.fam)?
