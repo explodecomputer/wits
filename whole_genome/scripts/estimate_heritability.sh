@@ -96,3 +96,5 @@ gcta64 \
 	--out ../results/bmi_hm3_metabochip \
 	--thread-num 5
 
+
+# Bivariate analysis
