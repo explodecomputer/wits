@@ -1,7 +1,11 @@
-observational association
-are the variables associated with confounders?
-is there in instrument
-is the instrument valid
-SNP - geno association
-perform IV 
-is the IV consistent with OLS
+# Mendelian randomisation practical
+
+1. Look at observational associations
+2. Variables associated with confounders?
+3. Test instrument associations
+4. Test if instrument is associated with confounders
+5. Test if SNP is associated with the outcome
+6. Perform two stage least squares
+7. get ratio of IV/OLS
+
+
