@@ -17,6 +17,6 @@ plink1.90 --bfile geno --assoc --pheno phen.txt --mpheno 5 --out hypertension
 gcta64 --thread-num 10 --grm geno_hm3 --reml --reml-no-lrt --pheno phen.txt --mpheno 5 --out hypertension
 Rscript gwas_graphs.R hypertension.assoc Hypertension
 
-plink1.90 --bfile geno --clump bmi.qassoc --out bmi
-plink1.90 --bfile geno --clump crp.qassoc --out crp
-plink1.90 --bfile geno --clump hypertension.assoc --out hypertension
+plink1.90 --bfile geno --clump bmi.qassoc --clump-kb 1000 --clump-r2 0.1 --out bmi
+plink1.90 --bfile geno --clump crp.qassoc --clump-kb 1000 --clump-r2 0.1 --out crp
+plink1.90 --bfile geno --clump hypertension.assoc --clump-kb 1000 --clump-r2 0.1 --out hypertension

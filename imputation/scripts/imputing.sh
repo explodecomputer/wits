@@ -15,3 +15,24 @@
 	-verbose \
 	-o_gz \
 	-phase
+
+
+# Convert to best guess
+
+plink1.90 \
+	--gen ../data/imputed_ftoregion.gz \
+	--sample ../data/phased_ftoregion.sample \
+	--oxford-single-chr 16 \
+	--make-bed \
+	--out ../data/imputed_ftoregion
+
+
+# Filter on maf > 0.01 and info score > 0.80 and 
+
+plink1.90 \
+	--bfile ../data/imputed_ftoregion \
+	--qual-scores ../data/imputed_ftoregion_info 6 2 1 \
+	--qual-threshold 0.8 \
+	--maf 0.01 \
+	--make-bed \
+	--out ../data/imputed_ftoregion_filtered
