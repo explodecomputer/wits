@@ -6,6 +6,11 @@ Genome wide association studies
 This practical is a quick refresher on how to perform GWAS. We are not starting at the beginning - the genotypes are already cleaned and imputed, and we have phenotypes, principal components and other covariates ready to use. Population outliers have already been removed also.
 
 
+## A note about Plink2
+
+Most of the data manipulation and some of the analysis will be run using [plink2](https://www.cog-genomics.org/plink2/). It is currently in beta (technically still `plink1.90`), but for most functions is stable and is extremely fast compared to the [original plink](http://pngu.mgh.harvard.edu/~purcell/plink/).
+
+
 ## Data
 
 Some things to consider before starting the analysis:
