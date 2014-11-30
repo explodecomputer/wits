@@ -45,18 +45,20 @@ Use [Impute2](https://mathgen.stats.ox.ac.uk/impute/impute_v2.html#home) to perf
 Following imputation create a dataset that is in plink format, filtered on MAF > 0.01 and info score > 0.8.
 
 
-## Questions
+## Exercises
 
-1. Evaluate the quality metrics. How sensitive is imputation to each of the settings that were varied? Consider:
+1. Perform imputation of the 1Mb region around the FTO gene
+
+2. Evaluate the quality metrics. How sensitive is imputation to each of the settings that were varied? Consider:
 
 	- concordance table
 	- distribution of info scores
 
-2. Plot the distribution of imputed allele frequencies against the original genotype frequencies. Why are there so many rare variants in 1000 genomes data?
+3. Plot the distribution of imputed allele frequencies against the original genotype frequencies. Why are there so many rare variants in 1000 genomes data?
 
-3. Plot the relationship of minor allele frequency against quality score. Why are rare alleles harder to impute?
+4. Plot the relationship of minor allele frequency against quality score. Why are rare alleles harder to impute?
 
-4. Compare the GWAS performance of imputed data against genotype data.
+5. Compare the GWAS performance of imputed data against genotype data.
 	
 	- Run GWAS on region 
 	- Upload to [LocusZoom](https://statgen.sph.umich.edu/locuszoom/genform.php?type=yourdata) to generate plots of region
