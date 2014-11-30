@@ -15,7 +15,7 @@ The folder `wits/randomised_data` has the scripts that were used to simulate the
 
 Each practical has its own folder within `wits/`. If you navigate to the folder on the github website then the README should show up, outlining the instructions etc for that practical.
 
-If changes are made by the owner of this repository you can sync your local copy by running the command
+If changes are made by the owner of this repository you can sync them to your local copy by running the command
 
     git pull
 
