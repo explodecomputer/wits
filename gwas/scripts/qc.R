@@ -14,7 +14,7 @@ hist(phen$bmi)
 
 # log transform makes it normal
 hist(log(phen$bmi))
-phen$lbmi <- log(phen$bmi)
+phen$lbmi <- log2(phen$bmi)
 
 # Which covariates should be included
 summary(lm(phen$lbmi ~ as.matrix(covars[,-c(1:2)])))
@@ -52,6 +52,9 @@ tapply(phen$bmi_adjusted, covars$sex, sd)
 # Still looks normal
 hist(phen$bmi_adjusted)
 
+# Adjust the phenotype to have mean and sd prior to adjusting for sex
+phen$bmi_adjusted <- phen$bmi_adjusted * sd(phen$lbmi) + mean(phen$lbmi)
+
 ######
 
 # CRP distribution
@@ -62,7 +65,7 @@ hist(log(phen$crp))
 
 # note: logging zero values is to be avoided!
 table(phen$crp == 0) # No zero values here
-phen$lcrp <- log(phen$crp)
+phen$lcrp <- log2(phen$crp)
 
 # Associated with covariates
 summary(lm(phen$lcrp ~ as.matrix(covars[,-c(1:2)])))
@@ -83,4 +86,4 @@ summary(glm(I(phen$hypertension-1) ~ as.matrix(covars[,-c(1:2)]), family="binomi
 
 # Save adjusted phenotypes
 phen <- with(phen, data.frame(fid, iid, bmi_adjusted, lcrp, hypertension))
-write.table("../data/phen.txt", row=F, col=F, qu=F)
+write.table(phen, "../data/phen.txt", row=F, col=F, qu=F)
