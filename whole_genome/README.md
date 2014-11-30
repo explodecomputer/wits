@@ -33,3 +33,4 @@ When genetic similarity is calculated by using SNPs then we are no longer estima
 4. Estimate the number of SNPs that influence the trait
 5. Construct a GRM using only common variants from metabochip. Estimate the heritability fitting the metabochip GRM and whole genome HM3 GRM jointly. What can we infer from these results?
 6. Construct two GRMs, one using chromosomes 1-8 and another using 9-22. Estimate the heritability of each GRM separately and both combined. Is the sum of heritabilities for each chromosome the same as that for the entire genome?
+7. Perform bivariate analysis to calculate genetic correlations between each pair of traits.
