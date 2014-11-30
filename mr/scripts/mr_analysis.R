@@ -80,22 +80,21 @@ summary(lm(phen$crp ~ bmisnps$MC4R))
 
 
 
+###################################
+# Perform two stage least squares #
+###################################
+
+a <- systemfit(phen$crp ~ phen$bmi, method="2SLS", ~ bmisnps$FTO)
 
 
+#####################################################
+# Estimate the causal effect of exposure on outcome #
+#####################################################
 
-summary(lm(phen$bmi ~ as.matrix(crpsnps[,-c(1,2)])))
+# Perform the IV ratio estimate
+# This is the IV estimate of genotype-outcome association divided by the exposure-outcome association
 
-summary(lm(phen$crp ~ as.matrix(bmisnps[,-c(1,2)])))
-summary(lm(phen$hyp ~ as.matrix(bmisnps[,-c(1,2)])))
+b_ols <- coefficients(lm(crp ~ bmi, phen))[2]
+b_iv <- coefficients(a)[2]
 
-
-# Use multiple SNPs to make allelic score
-
-# How does this affect the power?
-# How does this affect the precision of the 2SlS estimate?
-# What are the possible drawbacks?
-
-
-# Try performing 
-
-# Try coding up the two stage least squares regression without the use of the systemfit function
+b_iv / b_ols
