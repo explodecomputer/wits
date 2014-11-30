@@ -1,8 +1,10 @@
 #!/bin/bash
 
+source ../../config
+
 # Use ShapeIT version 2 to phase genetype data
 
-./shapeit \
+shapeit \
 	--input-bed ../data/geno_ftoregion.bed ../data/geno_ftoregion.bim ../data/geno_ftoregion.fam \
 	--input-map ../data/genetic_map_chr16_combined_b37.txt.gz \
 	--output-max ../data/phased_ftoregion.haps.gz ../data/phased_ftoregion.sample

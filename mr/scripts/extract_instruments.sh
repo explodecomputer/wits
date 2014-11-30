@@ -1,9 +1,11 @@
 #!/bin/bash
 
+source ../../config
+
 # Extract BMI SNPs
 
 plink1.90 \
-	--bfile ../../randomise_data/geno \
+	--bfile ${datadir}/geno_qc \
 	--extract ../data/bmisnps.txt \
 	--recode A \
 	--out ../data/bmisnps
@@ -12,7 +14,7 @@ plink1.90 \
 # Extract CRP SNPs
 
 plink1.90 \
-	--bfile ../../randomise_data/geno \
+	--bfile ${datadir}/geno_qc \
 	--extract ../data/crpsnps.txt \
 	--recode A \
 	--out ../data/crpsnps

@@ -1,12 +1,14 @@
 #!/bin/bash
 
+source ../../config
+
 # Use impute2 to impute the output from shapeit2
 
-./impute2 \
+impute2 \
 	-m ../data/genetic_map_chr16_combined_b37.txt.gz \
 	-known_haps_g ../data/phased_ftoregion.haps.gz \
-	-h ../data/1000GP_Phase3_chr16.hap.gz \
-	-l ../data/1000GP_Phase3_chr16.legend.gz \
+	-h ${datadir}/1000GP_Phase3_chr16.hap \
+	-l ${datadir}/1000GP_Phase3_chr16.legend \
 	-Ne 15000 \
 	-k_hap 2000 \
 	-int 52000000 53000000 \
