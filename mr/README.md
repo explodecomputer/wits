@@ -75,9 +75,9 @@ This is a useful step to make an inference as to whether or not there is a poten
 
 Here we formally estimate the causal effect of the instrument on the outcome that is occurring through the exposure. In this example we will use two stage least squares to obtain the causal estimate. The estimate is simply calculated through:
 
-X = a1 + hat(b1)Z + E1
-hat(X) = hat(b1)Z
-Y = a2 + hat(b2)hat(X) + E2
+		X = a1 + hat(b1)Z + E1
+		hat(X) = hat(b1)Z
+		Y = a2 + hat(b2)hat(X) + E2
 
 where hat(b2) is our estimate of the instrument's effect.
 
