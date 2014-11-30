@@ -1,5 +1,5 @@
 Genome wide association studies
--------------------------------
+===============================
 
 ## Background
 
@@ -56,3 +56,11 @@ Should include covariates and PCs
 - Manhattan plot
 - Q-Q plot
 - Clumping
+
+
+## Questions
+
+1. How many independent significant signals are identified for each trait?
+2. Is there evidence for the signals being driven by population stratification?
+3. What is the best way to verify whether these signals are real?
+4. Are the effect size estimates likely to be accurate?

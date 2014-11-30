@@ -23,9 +23,9 @@ trait <- arguments[2]
 a <- read.table(infile, he=T)
 a$CHR <- as.numeric(a$CHR)
 
-qqplotpval(a$P, paste(trait, "_qqplot.png", sep=""))
+qqplotpval(a$P, paste("../images/", trait, "_qqplot.png", sep=""))
 
-png(file=paste(trait, "_manhattan.png", sep=""))
-manhattan(a, main=paste(trait, "Manhattan plot"))
+png(file=paste("../images/", trait, "_manhattan.png", sep=""))
+manhattan(a, main=paste("../images/", trait, "Manhattan plot"))
 dev.off()
 

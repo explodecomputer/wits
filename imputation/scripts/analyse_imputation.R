@@ -1,14 +1,28 @@
 library(ggplot2)
 library(plyr)
 
+###########################
+# Read in quality metrics #
+###########################
+
 info <- read.table("../data/imputed_ftoregion_info", he=T)
 infos <- read.table("../data/imputed_ftoregion_info_by_sample", he=T)
 
-# What is the imputation quality?
+
+####################################
+# Individual level quality metrics #
+####################################
+
+# Predicted quality across all sites for each individual
 pdf(file="../images/imputation_quality.pdf")
 hist(infos$concord_type0)
 hist(infos$r2_type0)
 dev.off()
+
+
+#####################
+# SNP distributions #
+#####################
 
 # How many SNPs does the region now have?
 nrow(info)
@@ -34,8 +48,6 @@ facet_grid(type ~ ., scales="free_y")
 ggsave("../images/maf_no0.pdf")
 
 
-# Why does 1000 genomes data have so many rare variants?
-
 # Plot predicted imputation accuracy for each SNP
 hist(subset(info, type==0)$info)
 
@@ -59,7 +71,3 @@ with(info, table(info > 0.8, maf > 0.01))
 pdf("../images/maf_reliablesnps.pdf")
 hist(subset(info, info > 0.8 & maf > 0.01)$maf)
 dev.off()
-
-
-# Why is imputation so bad at imputing rare variants?
-# What is the distribution of maf in the complete data set (geno.bed/geno.bim/geno.fam)?
