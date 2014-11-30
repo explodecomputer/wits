@@ -21,5 +21,3 @@ plink1.90 \
 # Create RData file
 
 R --no-save < extract_instruments.R
-
-
