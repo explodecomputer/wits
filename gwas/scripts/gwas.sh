@@ -21,7 +21,7 @@ plink1.90 \
 	--clump-r2 0.1 \
 	--out ../results/bmi
 
-Rscript gwas_graphs.R ../results/bmi.qassoc BMI
+Rscript gwas_graphs.R ../results/bmi.qassoc BMI TRUE
 
 
 # CRP
@@ -40,7 +40,7 @@ plink1.90 \
 	--clump-r2 0.1 \
 	--out ../results/crp
 
-Rscript gwas_graphs.R ../results/crp.qassoc CRP
+Rscript gwas_graphs.R ../results/crp.qassoc CRP TRUE
 
 
 # Hypertension
@@ -59,4 +59,4 @@ plink1.90 \
 	--clump-r2 0.1 \
 	--out ../results/hypertension
 
-Rscript gwas_graphs.R ../results/hypertension.assoc Hypertension
+Rscript gwas_graphs.R ../results/hypertension.assoc Hypertension TRUE

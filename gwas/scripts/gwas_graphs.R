@@ -1,4 +1,5 @@
 library(qqman)
+library(GenABEL)
 
 qqplotpval <- function(P, filename=NULL)
 {
@@ -19,9 +20,15 @@ qqplotpval <- function(P, filename=NULL)
 arguments <- commandArgs(T)
 infile <- arguments[1]
 trait <- arguments[2]
+small <- as.logical(arguments[3])
 
 a <- read.table(infile, he=T)
 a$CHR <- as.numeric(a$CHR)
+
+if(small)
+{
+        a <- a[sample(1:nrow(a), 500000, repl=F)]
+}
 
 qqplotpval(a$P, paste("../images/", trait, "_qqplot.png", sep=""))
 
