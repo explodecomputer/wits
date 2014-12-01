@@ -48,6 +48,11 @@ Following imputation create a dataset that is in plink format, filtered on MAF >
 ## Exercises
 
 1. Perform imputation of the 1Mb region around the FTO gene
+	
+		cd ~/wits/imputation/scripts
+		./extract_data.sh
+		./haplotyping.sh
+		./imputing.sh
 
 2. Evaluate the quality metrics. How sensitive is imputation to each of the settings that were varied? Consider:
 
