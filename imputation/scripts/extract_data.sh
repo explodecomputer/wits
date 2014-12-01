@@ -11,4 +11,5 @@ plink1.90 \
 	--make-bed \
 	--from-bp 49000000 \
 	--to-bp 56000000 \
+	--chr 16 \
 	--out ../data/geno_ftoregion
