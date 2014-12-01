@@ -5,7 +5,7 @@ source ../../config
 # Use impute2 to impute the output from shapeit2
 
 impute2 \
-	-m ../data/genetic_map_chr16_combined_b37.txt.gz \
+	-m ${datadir}/genetic_map_chr16_combined_b37.txt \
 	-known_haps_g ../data/phased_ftoregion.haps.gz \
 	-h ${datadir}/1000GP_Phase3_chr16.hap \
 	-l ${datadir}/1000GP_Phase3_chr16.legend \
