@@ -18,13 +18,14 @@ gcta64 \
 	--qcovar ../../randomise_data/covars.txt \
 	--reml-pred-rand \
 	--out ../results/bmi_hm3 \
-	--thread-num 4
+	--thread-num 8
 
 gcta64 --bfile ${datadir}/geno_qc \
 	--keep ../data/trainingset.txt \
 	--extract ../data/hapmap3_autosome.snplist \
 	--blup-snp ../results/bmi_hm3.indi.blp \
-	--out ../results/bmi_hm3
+	--out ../results/bmi_hm3 \
+	--thread-num 8
 
 plink1.90 --bfile ${datadir}/geno_qc \
 	--extract ../data/hapmap3_autosome.snplist \

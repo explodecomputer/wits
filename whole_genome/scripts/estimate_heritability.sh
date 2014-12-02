@@ -102,9 +102,8 @@ gcta64 \
 # Bivariate analysis
 gcta64 \
 	--grm ../data/geno_hm3 \
-	--reml-bivar 1 2
+	--reml-bivar 1 2 \
 	--pheno ../../gwas/data/phen.txt \
-	--mpheno 5 \
 	--qcovar ../../randomise_data/covars.txt \
 	--out ../results/bmi-crp_hm3_metabochip \
 	--thread-num 8
