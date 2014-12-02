@@ -44,6 +44,13 @@ If you wish to use pre-computed GRMs instead of recalculating them yourselves th
     cp /global/geneticepi/geno_hm3.grm* ~/wits/whole_genome/data/
     cp /global/geneticepi/geno_metabochip.grm* ~/wits/whole_genome/data/
 
+Make sure that the QC'd phen file from the GWAS is available, i.e. run:
+
+    cd ~/wits/gwas/scripts/
+    R --no-save < qc.R
+
+This will generate a the file `~/wits/gwas/data/phen.txt`.
+
 ## Exercises
 
 1. Construct the genetic relationship matrix using HM3 SNPs and metabochip SNPs
