@@ -24,13 +24,40 @@ See slides for more accurate treatment, but the intuition is as follows. Heritab
 
 When genetic similarity is calculated by using SNPs then we are no longer estimating heritability per se, we are instead estimating how much of the phenotypic variance can be explained by all the SNPs in our model.
 
+## Setup
+
+Update the repository
+
+    cd ~/wits
+    git pull
+
+Put the GCTA programme in your path
+
+    cp bin/gcta64 ~/bin
+
+And make sure you can run it:
+
+    gcta64
+
+If you wish to use pre-computed GRMs instead of recalculating them yourselves then see then copy them from the shared space:
+
+    cp /global/geneticepi/geno_hm3.grm* ~/wits/whole_genome/data/
+    cp /global/geneticepi/geno_metabochip.grm* ~/wits/whole_genome/data/
 
 ## Exercises
 
-1. What are the SNP heritabilities for each of the traits?
-2. Why is it important to make sure related individuals are not included in this analysis?
-3. Use BLUP to predict each of the three traits
-4. Estimate the number of SNPs that influence the trait
-5. Construct a GRM using only common variants from metabochip. Estimate the heritability fitting the metabochip GRM and whole genome HM3 GRM jointly. What can we infer from these results?
-6. Construct two GRMs, one using chromosomes 1-8 and another using 9-22. Estimate the heritability of each GRM separately and both combined. Is the sum of heritabilities for each chromosome the same as that for the entire genome?
-7. Perform bivariate analysis to calculate genetic correlations between each pair of traits.
+1. Construct the genetic relationship matrix using HM3 SNPs and metabochip SNPs
+
+    cd ~/wits/whole_genome/scripts
+    ./construct_grm.sh
+
+2. What are the SNP heritabilities for each of the traits? See `estimate_heritability.sh`
+3. Why is it important to make sure related individuals are not included in this analysis?
+4. Use BLUP to predict each of the three traits
+
+    ./prediction.sh
+
+5. Estimate the number of SNPs that influence the trait. See `prediction.R`
+6. Estimate the heritability fitting the metabochip GRM and whole genome HM3 GRM jointly. See `estimate_heritability.sh`. What can we infer from these results?
+7. Perform bivariate analysis to calculate genetic correlations between each pair of traits. See `estimate_heritability.sh`.
+8. Construct two GRMs, one using chromosomes 1-8 and another using 9-22. Estimate the heritability of each GRM separately and both combined. Is the sum of heritabilities for each chromosome the same as that for the entire genome?
