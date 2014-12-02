@@ -48,14 +48,14 @@ If you wish to use pre-computed GRMs instead of recalculating them yourselves th
 
 1. Construct the genetic relationship matrix using HM3 SNPs and metabochip SNPs
 
-    cd ~/wits/whole_genome/scripts
-    ./construct_grm.sh
+        cd ~/wits/whole_genome/scripts
+        ./construct_grm.sh
 
 2. What are the SNP heritabilities for each of the traits? See `estimate_heritability.sh`
 3. Why is it important to make sure related individuals are not included in this analysis?
 4. Use BLUP to predict each of the three traits
 
-    ./prediction.sh
+        ./prediction.sh
 
 5. Estimate the number of SNPs that influence the trait. See `prediction.R`
 6. Estimate the heritability fitting the metabochip GRM and whole genome HM3 GRM jointly. See `estimate_heritability.sh`. What can we infer from these results?
