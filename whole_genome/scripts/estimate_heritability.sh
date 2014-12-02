@@ -41,7 +41,7 @@ gcta64 \
 	--reml \
 	--reml-no-lrt \
 	--pheno ../../gwas/data/phen.txt \
-	--mpheno 4 \
+	--mpheno 2 \
 	--qcovar ../../randomise_data/covars.txt \
 	--out ../results/crp_hm3 \
 	--thread-num 8
@@ -51,7 +51,7 @@ gcta64 \
 	--reml \
 	--reml-no-lrt \
 	--pheno ../../gwas/data/phen.txt \
-	--mpheno 4 \
+	--mpheno 2 \
 	--qcovar ../../randomise_data/covars.txt \
 	--out ../results/crp_metabochip \
 	--thread-num 8
@@ -61,7 +61,7 @@ gcta64 \
 	--reml \
 	--reml-no-lrt \
 	--pheno ../../gwas/data/phen.txt \
-	--mpheno 4 \
+	--mpheno 2 \
 	--qcovar ../../randomise_data/covars.txt \
 	--out ../results/bmi_hm3_metabochip \
 	--thread-num 8
@@ -73,7 +73,7 @@ gcta64 \
 	--reml \
 	--reml-no-lrt \
 	--pheno ../../gwas/data/phen.txt \
-	--mpheno 5 \
+	--mpheno 3 \
 	--qcovar ../../randomise_data/covars.txt \
 	--out ../results/hyp_hm3 \
 	--thread-num 8
@@ -83,7 +83,7 @@ gcta64 \
 	--reml \
 	--reml-no-lrt \
 	--pheno ../../gwas/data/phen.txt \
-	--mpheno 5 \
+	--mpheno 3 \
 	--qcovar ../../randomise_data/covars.txt \
 	--out ../results/crp_metabochip \
 	--thread-num 8
@@ -93,7 +93,7 @@ gcta64 \
 	--reml \
 	--reml-no-lrt \
 	--pheno ../../gwas/data/phen.txt \
-	--mpheno 5 \
+	--mpheno 3 \
 	--qcovar ../../randomise_data/covars.txt \
 	--out ../results/bmi_hm3_metabochip \
 	--thread-num 8
