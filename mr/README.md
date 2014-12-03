@@ -20,9 +20,9 @@ Update the repository
 		cd ~/wits
 		git pull
 
-Make sure that the QC'd phen file from the GWAS is available, i.e. run:
+Regenerate the QC'd phenotypes for the MR analysis. (Note, we will be using systolic blood pressure instead of hypertension here. This is because the method that we will use for MR, two stage least squares regression, is robust to continuous phenotypes but not binary phenotypes.)
 
-		cd ~/wits/gwas/scripts/
+		cd ~/wits/mr/scripts
 		R --no-save < qc.R
 
 Look at the GWAS results for BMI, CRP and hypertension. The top SNPs are going to be our 'instruments'. We used clumping to isolate a single SNP per peak. Run the following command to extract instruments for BMI and CRP:
