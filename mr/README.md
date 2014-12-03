@@ -103,7 +103,7 @@ Here we formally estimate the causal effect of the instrument on the outcome tha
 where hat(b2) is our estimate of the instrument's effect.
 
 Note:
-2SLS is only one of several approaches that can be used - it deals 
+2SLS is only one of several approaches that can be used - it performs well for performing MR with continous traits.
 
 ### Estimate causal effect of exposure on outcome
 
