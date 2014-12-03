@@ -7,7 +7,7 @@ library(systemfit)
 
 # Phenotypes (previously transformed to normality etc from GWAS stuff)
 # Remember: BMI and CRP are log2 transformed
-phen <- read.table("../../gwas/data/phen.txt")
+phen <- read.table("../data/phen.txt")
 names(phen) <- c("FID", "IID", "bmi", "crp", "hyp")
 
 # Covariates
@@ -84,17 +84,28 @@ summary(lm(phen$crp ~ bmisnps$MC4R))
 # Perform two stage least squares #
 ###################################
 
-a <- systemfit(phen$crp ~ phen$bmi, method="2SLS", ~ bmisnps$FTO)
-
+mr_model <- systemfit(phen$crp ~ phen$bmi, method="2SLS", ~ bmisnps$FTO)
+summary(mr_model)
 
 #####################################################
 # Estimate the causal effect of exposure on outcome #
 #####################################################
 
-# Perform the IV ratio estimate
-# This is the IV estimate of genotype-outcome association divided by the exposure-outcome association
+# Perform the MR ratio estimate
+# This is the MR estimate of genotype-outcome association divided by the exposure-outcome association
 
 b_ols <- coefficients(lm(crp ~ bmi, phen))[2]
-b_iv <- coefficients(a)[2]
+b_mr <- coefficients(mr_model)[2]
 
-b_iv / b_ols
+b_mr / b_ols
+
+
+# Plot the association
+# The red line fits the observational association
+# The blue line is the MR regression
+
+png("../images/crp_bmi.png")
+plot(crp ~ bmi, phen)
+abline(lm(crp ~ bmi, phen), col="red")
+abline(mr_model, col="blue")
+dev.off()
