@@ -112,7 +112,12 @@ Look at the GWAS results for BMI, CRP and hypertension. The top SNPs are going t
 		cd ~/wits/mr/scripts
 		./extract_instruments.sh
 
-The necessary code to run the rest of the analyses below are in the file `mr_analysis.R`.
+The necessary code to run the rest of the analyses below are in the file `mr_analysis.R`. You may need to install the R package `systemfit`. In `R`, run the following command:
+
+		install.packages("systemfit")
+
+		
+
 
 ## Exercises
 
