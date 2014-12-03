@@ -13,6 +13,27 @@ Our aim is to find if there are associations between these traits, and estimate 
 
 The steps to perform MR in a rigorous manner are outlined below
 
+## Setup
+
+Update the repository
+
+		cd ~/wits
+		git pull
+
+Make sure that the QC'd phen file from the GWAS is available, i.e. run:
+
+		cd ~/wits/gwas/scripts/
+		R --no-save < qc.R
+
+Look at the GWAS results for BMI, CRP and hypertension. The top SNPs are going to be our 'instruments'. We used clumping to isolate a single SNP per peak. Run the following command to extract instruments for BMI and CRP:
+
+		cd ~/wits/mr/scripts
+		./extract_instruments.sh
+
+The necessary code to run the rest of the analyses below are in the file `mr_analysis.R`. You may need to install the R package `systemfit`. In `R`, run the following command:
+
+		install.packages("systemfit")
+
 
 ## Performing MR
 
@@ -95,28 +116,6 @@ Then we can scale the observational association by this ratio
 		hat(b_causal) = ratio x hat(b_obs)
 
 
-## Setup
-
-Update the repository
-
-		cd ~/wits
-		git pull
-
-Make sure that the QC'd phen file from the GWAS is available, i.e. run:
-
-		cd ~/wits/gwas/scripts/
-		R --no-save < qc.R
-
-Look at the GWAS results for BMI, CRP and hypertension. The top SNPs are going to be our 'instruments'. We used clumping to isolate a single SNP per peak. Run the following command to extract instruments for BMI and CRP:
-
-		cd ~/wits/mr/scripts
-		./extract_instruments.sh
-
-The necessary code to run the rest of the analyses below are in the file `mr_analysis.R`. You may need to install the R package `systemfit`. In `R`, run the following command:
-
-		install.packages("systemfit")
-
-		
 
 
 ## Exercises
