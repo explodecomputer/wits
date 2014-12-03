@@ -95,6 +95,25 @@ Then we can scale the observational association by this ratio
 		hat(b_causal) = ratio x hat(b_obs)
 
 
+## Setup
+
+Update the repository
+
+		cd ~/wits
+		git pull
+
+Make sure that the QC'd phen file from the GWAS is available, i.e. run:
+
+		cd ~/wits/gwas/scripts/
+		R --no-save < qc.R
+
+Look at the GWAS results for BMI, CRP and hypertension. The top SNPs are going to be our 'instruments'. We used clumping to isolate a single SNP per peak. Run the following command to extract instruments for BMI and CRP:
+
+		cd ~/wits/mr/scripts
+		./extract_instruments.sh
+
+The necessary code to run the rest of the analyses below are in the file `mr_analysis.R`.
+
 ## Exercises
 
 1. Calculate the causal effects of 
