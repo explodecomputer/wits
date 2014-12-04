@@ -8,7 +8,9 @@ This repository contains instructions, bits of data, and scripts for each of the
 - Whole genome methods (`whole_genome`)
 - Mendelian randomisation (`mr`)
 
-First thing to do is clone it into your home directory. Log on to the cluster and type:
+The guide to each of the practicals are in the README files in each of the respective directories. Slides and references for the course can be downloaded from [here](https://drive.google.com/drive/u/0/#folders/0B0M1NAJdjSe4eXVtNnAxaWxUY00).
+
+To get set up, first thing to do is clone it into your home directory. Log on to the cluster and type:
 
     git clone https://github.com/explodecomputer/wits.git
 
