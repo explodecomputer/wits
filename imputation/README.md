@@ -56,14 +56,19 @@ Following imputation create a dataset that is in plink format, filtered on MAF >
 
 2. Evaluate the quality metrics. How sensitive is imputation to each of the settings that were varied? Consider:
 
-	- concordance table
-	- distribution of info scores
+	- concordance table (see `../data/imputed_ftoregion_summary`)
+	- distribution of info scores (see `analyse_imputation.R`)
 
-3. Plot the distribution of imputed allele frequencies against the original genotype frequencies. Why are there so many rare variants in 1000 genomes data?
 
-4. Plot the relationship of minor allele frequency against quality score. Why are rare alleles harder to impute?
+3. Plot the distribution of imputed allele frequencies against the original genotype frequencies. Why are there so many rare variants in 1000 genomes data? See `analyse_imputation.R`.
+
+4. Plot the relationship of minor allele frequency against quality score. See `analyse_imputation.R`. Why are rare alleles harder to impute?
 
 5. Compare the GWAS performance of imputed data against genotype data.
 	
-	- Run GWAS on region 
-	- Upload to [LocusZoom](https://statgen.sph.umich.edu/locuszoom/genform.php?type=yourdata) to generate plots of region
+	- Run GWAS on region and look at the new Manhattan plots in `../gwas_comparison`. Run the following to generate:
+	
+			./gwas_comparison.sh
+			R --no-save < gwas_comparison.R
+
+6. Upload FTO GWAS results to [LocusZoom](https://statgen.sph.umich.edu/locuszoom/genform.php?type=yourdata) to generate plots of region
