@@ -15,6 +15,7 @@ Most of the data manipulation and some of the analysis will be run using [plink2
 
 Some things to consider before starting the analysis:
 
+
 ### Genotype data
 
 - How many individuals are there?
@@ -23,6 +24,9 @@ Some things to consider before starting the analysis:
 - Genotyped or imputed?
 - What is the SNP density?
 - What format is the data?
+- Is there population structure?
+- Are there related individuals?
+
 
 ### Phenotype data
 
@@ -42,6 +46,7 @@ Performing QC is very important, here are some routine things to consider:
 - Phenotypes should be normalised
 - Some variables should be adjusted for variance effects
 - Identify population outliers
+
 
 ### Things that need reporting
 - Genotyping call rate after exclusions
@@ -64,8 +69,21 @@ Should include covariates and PCs
 
 
 ## Questions
+1. Perform QC steps for the genotype data, and save the cleaned genotype data with filename `geno_qc`
 
-1. How many independent significant signals are identified for each trait?
-2. Is there evidence for the signals being driven by population stratification?
-3. What is the best way to verify whether these signals are real?
-4. Are the effect size estimates likely to be accurate?
+    cd ~/wits/gwas/scripts
+    ./qc.sh
+
+2. Perform QC steps for the phenotype data
+
+    R --no-save < qc.R
+
+3. Perform the GWAS.
+
+    ./gwas.sh
+
+4. How many independent significant signals are identified for each trait? What is a suitable threshold? Look at the Manhattan plots in `../images` and at the `.clumped` files in `../results`.
+
+5. Is there evidence for the signals being driven by population stratification? Use the estimates of `lambda` in the Q-Q plots.
+6. What is the best way to verify whether these signals are real?
+7. Are the effect size estimates likely to be accurate?
