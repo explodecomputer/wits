@@ -64,9 +64,7 @@ Following imputation create a dataset that is in plink format, filtered on MAF >
 
 4. Plot the relationship of minor allele frequency against quality score. See `analyse_imputation.R`. Why are rare alleles harder to impute?
 
-5. Compare the GWAS performance of imputed data against genotype data.
-	
-	- Run GWAS on region and look at the new Manhattan plots in `../gwas_comparison`. Run the following to generate:
+5. Compare the GWAS performance of imputed data against genotype data. Run GWAS on region using imputed SNPs and just genotyped SNPs and look at the new Manhattan plots in `../gwas_comparison`. Run the following to generate:
 	
 			./gwas_comparison.sh
 			R --no-save < gwas_comparison.R
