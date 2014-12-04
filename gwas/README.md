@@ -71,16 +71,16 @@ Should include covariates and PCs
 ## Questions
 1. Perform QC steps for the genotype data, and save the cleaned genotype data with filename `geno_qc`
 
-    cd ~/wits/gwas/scripts
-    ./qc.sh
+        cd ~/wits/gwas/scripts
+        ./qc.sh
 
 2. Perform QC steps for the phenotype data
 
-    R --no-save < qc.R
+        R --no-save < qc.R
 
 3. Perform the GWAS.
 
-    ./gwas.sh
+        ./gwas.sh
 
 4. How many independent significant signals are identified for each trait? What is a suitable threshold? Look at the Manhattan plots in `../images` and at the `.clumped` files in `../results`.
 
