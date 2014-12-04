@@ -65,11 +65,19 @@ summary(lm(bmisnps$MC4R ~ as.matrix(covs[,-c(1,2)])))
 # Will need the following information:
 
 # Sample size
-# Regression coefficient for observational association
-# Variance of exposure
-# Variance of outcome
-# Variance of exposure explained by instrument
+nrow(phen)
 
+# Regression coefficient for observational association
+summary(lm(crp ~ bmi, phen))
+
+# Variance of exposure
+var(phen$bmi)
+
+# Variance of outcome
+var(phen$crp)
+
+# Variance of exposure explained by instrument
+summary(lm(phen$bmi ~ bmisnps$MC4R))
 
 ################################################
 # Are instruments associated with the outcome? #
@@ -97,8 +105,11 @@ summary(mr_model)
 b_ols <- coefficients(lm(crp ~ bmi, phen))[2]
 b_mr <- coefficients(mr_model)[2]
 
-b_mr / b_ols
+# Ratio estimate:
+d <- b_mr / b_ols
 
+# Estimate of causal effect of BMI on CRP:
+b_ols * d
 
 # Plot the association
 # The red line fits the observational association
